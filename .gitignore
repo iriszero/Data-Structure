@@ -1,0 +1,17 @@
+# Object files
+*.xml
+*.iml
+
+# Temporary
+*.swp
+*.name
+
+# Executables
+*.exe
+*.out
+*.app
+*.i*86
+*.x86_64
+*.hex
+
+
