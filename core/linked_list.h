@@ -1,4 +1,5 @@
 #pragma once
+#include <stdio.h>
 const int SUCCESS = 0;
 const int NOT_FOUND = 11;
 const int COLLAPSED = 12;
