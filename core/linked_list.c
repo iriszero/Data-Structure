@@ -1,32 +1,31 @@
-#pragma once
 #include "linked_list.h"
 
-int linked_list_init(LinkedListHeader linked_list) {
-    if (linked_list->next) linked_list_destroy(linked_list);
+int ll_init(LLHeader ll) {
+    if (ll->next) ll_destroy(ll);
 
-    linked_list->next = (LinkedListpNode)malloc(sizeof(linked_list_node));
-    if (linked_list->next== NULL) return ALLOCATION_FAIL;
-    linked_list->next->next = NULL;
+    ll->next = (LLpNode)malloc(sizeof(ll_node));
+    if (ll->next== NULL) return ALLOCATION_FAIL;
+    ll->next->next = NULL;
     return SUCCESS;
 }
 
-int linked_list_is_empty(LinkedListHeader linked_list) {
-    return (linked_list->next == NULL);
+int ll_is_empty(LLHeader ll) {
+    return (ll->next == NULL);
 }
 
-int linked_list_delete_node(linked_list_element_t num, LinkedListHeader linked_list) {
-    LinkedListpNode pos = linked_list_find_previous(num, linked_list);
+int ll_delete_node(ll_element_t num, LLHeader ll) {
+    LLpNode pos = ll_find_previous(num, ll);
     if (pos == NULL) return NOT_FOUND;
     if (pos->next = NULL) return COLLAPSED;
-    LinkedListpNode post_next_next = pos->next->next;
+    LLpNode post_next_next = pos->next->next;
     free(pos->next);
     pos->next = post_next_next;
     return SUCCESS;
 }
 
-LinkedListpNode linked_list_find_previous(linked_list_element_t num, LinkedListHeader linked_list) {
+LLpNode ll_find_previous(ll_element_t num, LLHeader ll) {
 
-    LinkedListpNode pos = linked_list;
+    LLpNode pos = ll;
     while (pos->next != NULL) {
         if (pos->next->element == num) {
             return pos;
@@ -37,10 +36,10 @@ LinkedListpNode linked_list_find_previous(linked_list_element_t num, LinkedListH
     }
     return NULL;    //cannot find the element
 }
-LinkedListpNode linked_list_find(linked_list_element_t num, LinkedListHeader linked_list) {
-    LinkedListpNode pos = linked_list;
+LLpNode ll_find(LLHeader ll, ll_element_t num) {
+    LLpNode pos = ll;
 
-    //a special case for empty linked_list
+    //a special case for empty ll
     //prevent header->element(waste value) == num
     if (pos->next == NULL) return NULL;
     pos = pos->next;
@@ -55,21 +54,21 @@ LinkedListpNode linked_list_find(linked_list_element_t num, LinkedListHeader lin
     }
     return NULL;    //cannot find the element
 }
-int linked_list_insert(linked_list_element_t num, LinkedListpNode pos) { //pos could be header node
-    LinkedListpNode pos_next = pos->next;
-    pos->next = (LinkedListpNode)malloc(sizeof(struct linked_list_node));
+int ll_insert(LLpNode pos, ll_element_t num) { //pos could be header node
+    LLpNode pos_next = pos->next;
+    pos->next = (LLpNode)malloc(sizeof(struct ll_node));
     if (pos->next == NULL) return ALLOCATION_FAIL;
     pos->next->element = num;
     pos->next->next = pos_next;
     return SUCCESS;
 }
-void linked_list_destroy(LinkedListHeader linked_list) {
-    if (linked_list->next != NULL) linked_list_destroy(linked_list->next);
-    free(linked_list);
+void ll_destroy(LLHeader ll) {
+    if (ll->next != NULL) ll_destroy(ll->next);
+    free(ll);
 }
-void linked_list_print_element(LinkedListHeader linked_list) {
+void ll_print_element(LLHeader ll) {
     printf("== Print Linked List ==");
-    LinkedListpNode pos = linked_list->next;
+    LLpNode pos = ll->next;
     while(pos) {
         printf("%d ", pos->element);
     }
