@@ -1,4 +1,6 @@
 #pragma once
+#include <stdlib.h>
+#include <assert.h>
 
 typedef int cq_element_t;
 static const int SUCCESS = 0;

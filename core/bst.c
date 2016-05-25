@@ -1,4 +1,4 @@
-#include <stdlib.h>
+
 #include "bst.h"
 
 /*Insert a new node with the key value into the BST.

@@ -1,5 +1,5 @@
 #pragma once
-
+#include <stdlib.h>
 static const int ALLOCATION_FAIL = 14;
 static const int DUPLICATE_VALUE = 15;
 

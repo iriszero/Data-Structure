@@ -1,6 +1,4 @@
 #include "circular_queue.h"
-#include <stdlib.h>
-#include <assert.h>
 
 int cq_init(CircularQueue* cq, int size) {
     if (cq != NULL) cq_destroy(cq);
