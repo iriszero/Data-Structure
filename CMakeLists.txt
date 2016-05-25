@@ -9,6 +9,7 @@ set(SOURCE_FILES core/main.c
         unit_test/unit_test.c
         unit_test/random_generator.h
         unit_test/random_generator.c
-        )
+        core/bst.c
+        core/bst.h)
 add_executable(Data_Structure ${SOURCE_FILES})
 
