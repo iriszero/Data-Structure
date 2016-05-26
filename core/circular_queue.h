@@ -2,11 +2,17 @@
 #include <stdlib.h>
 #include <assert.h>
 
-typedef int cq_element_t;
 static const int SUCCESS = 0;
 static const int EMPTY = 10;
 static const int FULL = 11;
 static const int ALLOCATION_FAIL = 14;
+
+#ifndef _DEFINE_CIRCULAR_QUEUE_
+    typedef int cq_element_t;
+    #define _DEFINE_CIRCULAR_QUEUE_
+#endif
+
+typedef cq_element_t *cq_p_element_t;
 struct CircularQueue {
     cq_element_t *key;
     int first;

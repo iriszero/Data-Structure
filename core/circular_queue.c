@@ -45,7 +45,7 @@ int cq_push(CircularQueue* cq, cq_element_t num) {
 }
 cq_element_t cq_front (CircularQueue* cq) {
     if (cq_is_empty(cq)) {
-        return EMPTY;
+        return NULL;
     }
     else {
         return cq->key[cq->first];
@@ -54,7 +54,7 @@ cq_element_t cq_front (CircularQueue* cq) {
 
 cq_element_t cq_rear (CircularQueue* cq) {
     if (cq_is_empty(cq)) {
-        return EMPTY;
+        return NULL;
     }
     else {
         return cq->key[cq->rear];
