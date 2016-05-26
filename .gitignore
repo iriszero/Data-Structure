@@ -1,3 +1,10 @@
+#Ignore all
+*
+# Unignore all with extensions
+!*.*
+# Unignore all dirs
+!*/
+
 # Object files
 *.xml
 *.iml
@@ -5,6 +12,15 @@
 # Temporary
 *.swp
 *.name
+~*.*
+# System
+.DS_Store
+
+# Pages
+*.pages
+
+# zip
+*.zip
 
 # Executables
 *.exe
